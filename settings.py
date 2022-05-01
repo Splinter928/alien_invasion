@@ -14,7 +14,7 @@ class Settings:
         # screen parameters
         self.screen_width = 1200
         self.screen_height = 800
-        self.bg_color = self.GRAY # background color
+        self.bg_color = self.GRAY  # background color
 
         # ship parameters
         self.ship_limit = 3
@@ -30,6 +30,7 @@ class Settings:
 
         # rate of acceleration of the game
         self.speedup_scale = 1.25
+        self.ship_speedup_scale = 1 + (self.speedup_scale - 1) / 3
         self.score_scale = 1.5
 
         self.initialize_dynamic_settings()
@@ -45,7 +46,7 @@ class Settings:
 
     def increase_speed(self):
         """increases speed settings"""
-        self.ship_speed *= self.speedup_scale
+        self.ship_speed *= self.ship_speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
         self.alien_points = int(self.alien_points * self.score_scale)

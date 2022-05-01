@@ -97,6 +97,7 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif not self.stats.game_active and event.key == pygame.K_p:
+            self.settings.initialize_dynamic_settings()
             self.start_game()
         elif event.key == pygame.K_ESCAPE:
             sys.exit()
