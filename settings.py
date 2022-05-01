@@ -15,17 +15,17 @@ class Settings:
         self.bg_color = (30, 30, 30)  # background color
 
         # ship parameters
-        self.ship_speed = 1.5
+        self.ship_speed = 1
         self.ship_limit = 3
 
         # bullets parameters
         self.bullet_speed = 1
-        self.bullet_width = 5
-        self.bullet_height = 15
+        self.bullet_width = 1
+        self.bullet_height = 50
         self.bullet_color = self.RED
         self.bullets_allowed = 5
 
         # aliens parameters
-        self.alien_speed = 2
-        self.fleet_drop_speed = 30
+        self.alien_speed = 0.2
+        self.fleet_drop_speed = 10
         self.fleet_direction = 1  # 1 - move to the right, -1 - move to the left

@@ -11,7 +11,7 @@ class Alien(Sprite):
         self.screen = ai_game.screen
         self.settings = ai_game.settings
 
-        self.image = pygame.image.load('images/lada_alien.bmp')
+        self.image = pygame.image.load('images/tie-fighter.png')
         self.rect = self.image.get_rect()
 
         # Every new alien starts near left top part of screen
