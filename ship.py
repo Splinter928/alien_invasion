@@ -1,14 +1,17 @@
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship:
+class Ship(Sprite):
     def __init__(self, ai_game):
         """ Initialization of starship and it's starting position """
+        super().__init__()
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
-        self.image = pygame.image.load('images/x-wing-100.png')
+        # full size ship model for game
+        self.image = pygame.image.load('images/x-wing-75.png')
         self.rect = self.image.get_rect()
 
         # Every new starship starts near bottom part of screen
