@@ -65,10 +65,14 @@ class Scoreboard:
         if self.stats.score > self.stats.high_score:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
+            self.write_high_score()
+
+    def write_high_score(self):
+        with open('high_score.txt', 'w') as f:
+            f.write(str(self.stats.high_score))
 
     def show_score(self):
         self.screen.blit(self.score_img, self.score_rect)
         self.screen.blit(self.high_score_img, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
         self.ships.draw(self.screen)
-

@@ -78,6 +78,7 @@ class AlienInvasion:
         self.stats.game_active = True
         self.sb.prep_score()
         self.sb.prep_ships()
+        self.sb.prep_level()
 
         # clearing alien and bullet lists
         self.aliens.empty()
@@ -133,7 +134,7 @@ class AlienInvasion:
             self._create_fleet()
             self.settings.increase_speed()
 
-            #level increasing
+            # level increasing
             self.stats.level += 1
             self.sb.prep_level()
 
