@@ -10,7 +10,7 @@ class GameStats:
     def reset_stats(self):
         self.score = 0
         self.level = 1
-        self.ships_left = self.settings.ship_limit
+        self.ships_left = self.settings.ship_start_limit
 
     def read_high_score(self):
         try:

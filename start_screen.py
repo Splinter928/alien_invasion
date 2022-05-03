@@ -52,7 +52,8 @@ class StartScreen:
                              "<-   -> - steer the ship",
                              "'SPACE' - fire",
                              "'ESC' - exit",
-                             "'P' - pause/resume"]
+                             "'P' - pause/resume",
+                             "MAX extra-lives = 5"]
         for i, text in enumerate(text_instructions):
             self.instr_image = self.font_instr.render(text, True, self.text_color_instr)
             self.instr_image_rect = self.instr_image.get_rect()
