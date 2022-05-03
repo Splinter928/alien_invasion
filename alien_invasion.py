@@ -9,7 +9,8 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 from game_stats import GameStats
-from button import Button
+from start_screen import Button
+from start_screen import StartScreen
 from scoreboard import Scoreboard
 
 
@@ -37,8 +38,9 @@ class AlienInvasion:
 
         self._create_fleet()
 
-        # creating a Play-button
+        # creating start screen
         self.play_button = Button(self, 'PLAY')
+        self.start_screen = StartScreen(self)
 
     def run_game(self):
         """main game cycle"""
@@ -97,7 +99,11 @@ class AlienInvasion:
             self.ship.moving_left = True
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
+        elif self.stats.game_active and event.key == pygame.K_p:
+            self.stats.game_active = False
         elif not self.stats.game_active and event.key == pygame.K_p:
+            self.stats.game_active = True
+        elif not self.stats.game_active and event.key == pygame.K_RETURN:
             self.settings.initialize_dynamic_settings()
             self.start_game()
         elif event.key == pygame.K_ESCAPE:
@@ -222,9 +228,10 @@ class AlienInvasion:
         self.aliens.draw(self.screen)
         self.sb.show_score()
 
-        # the play button is displayed if the game is not active
+        # the play button and instructions are displayed if the game is not active
         if not self.stats.game_active:
             self.play_button.draw_button()
+            self.start_screen.draw_instructions()
 
         # displaying the last drawn screen
         pygame.display.flip()
