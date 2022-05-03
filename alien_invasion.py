@@ -6,6 +6,7 @@ from random import randint
 import pygame
 
 from settings import Settings
+from sound import Sound
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -23,6 +24,7 @@ class AlienInvasion:
         """game initialization and creation of resources"""
         pygame.init()
         self.settings = Settings()
+        self.sounds = Sound()
 
         # window mode
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
@@ -48,6 +50,7 @@ class AlienInvasion:
 
     def run_game(self):
         """main game cycle"""
+        self.sounds.music.play(-1)
         while True:
             self._check_events()
             if self.stats.game_active:
@@ -126,6 +129,7 @@ class AlienInvasion:
             new_prise = Prise(self)
             new_prise.rect = rect
             self.prises.add(new_prise)
+            self.sounds.sound_prise.play()
 
     def _update_prise(self):
         screen_rect = self.screen.get_rect()
@@ -148,6 +152,7 @@ class AlienInvasion:
         # bullet creation and including it to the group
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
+            self.sounds.sound_shot.play()
             self.bullets.add(new_bullet)
 
     def _update_bullets(self):
