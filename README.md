@@ -21,7 +21,9 @@
   </p>
   
 <p>When killing an enemy, he can drop an extra life with a 5% chance. Maximum number of extra-lives in gamer collection is 5.</p>
+ 
   
+<h3>Game screen:<h3>
 <img src="./images/start_scr.PNG">
 
 
